@@ -26,7 +26,17 @@ node {
   }
   
   stage("build"){
-      bat 'mvn sample/pom.xml clean install'
+  
+    dir('sample') {
+    echo "I am in sample folder"
+       bat 'mvn clean install'
+    }
+    
+     dir('web') {
+    echo "I am in web folder======================"
+       bat 'mvn clean install'
+    }
+      
   }
 
 }

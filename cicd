@@ -24,5 +24,9 @@ node {
   stage("listthefiles"){
     bat 'dir'
   }
+  
+  stage("build"){
+    bat 'mvn clean install'
+  }
 
 }

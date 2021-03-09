@@ -1,0 +1,27 @@
+node {
+
+  stage("cleanup"){
+    cleanWs()
+  }
+  
+  stage("sampleProject"){
+    dir('sample') {
+           git branch: 'main', credentialsId: 'mynawin2rana', url: 'https://github.com/DevopsTrainingInfoOrg/SampleExample.git'
+           bat 'dir'
+		   bat 'mvn clean install'
+		   archiveArtifacts artifacts: 'target/SampleExample*.jar', followSymlinks: false
+		   
+	}
+
+  }
+  
+  stage("sampleweb"){
+      dir('web') {
+	     git branch: 'main', credentialsId: 'mynawin2rana', url: 'https://github.com/DevopsTrainingInfoOrg/SampleWebApplication.git'
+         bat 'dir'
+		 bat 'mvn clean install'
+		 archiveArtifacts artifacts: 'target/Sample*.war', followSymlinks: false
+	  }
+    
+  }
+}

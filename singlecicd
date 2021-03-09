@@ -9,6 +9,7 @@ node {
            git branch: 'main', credentialsId: 'mynawin2rana', url: 'https://github.com/DevopsTrainingInfoOrg/SampleExample.git'
            bat 'dir'
 		   bat 'mvn clean install'
+		   bat 'mvn test123'
 		   archiveArtifacts artifacts: 'target/SampleExample*.jar', followSymlinks: false
 		   
 	}

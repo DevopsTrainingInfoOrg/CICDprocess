@@ -1,0 +1,28 @@
+node {
+
+  stage("cleanup"){
+    cleanWs()
+  }
+  
+  stage("sampleProject"){
+    dir('sample') {
+           git branch: 'main', credentialsId: 'mynawin2rana', url: 'https://github.com/DevopsTrainingInfoOrg/SampleExample.git'
+           bat 'dir'
+	}
+
+  }
+  
+  stage("sampleweb"){
+      dir('web') {
+	     git branch: 'main', credentialsId: 'mynawin2rana', url: 'https://github.com/DevopsTrainingInfoOrg/SampleWebApplication.git'
+         bat 'dir'
+	  }
+    
+  }
+  
+  
+  stage("listthefiles"){
+    bat 'dir'
+  }
+
+}

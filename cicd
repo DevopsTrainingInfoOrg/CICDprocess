@@ -26,7 +26,7 @@ node {
   }
   
   stage("build"){
-      bat 'mvn sampl/pom.xml clean install'
+      bat 'mvn sample/pom.xml clean install'
   }
 
 }

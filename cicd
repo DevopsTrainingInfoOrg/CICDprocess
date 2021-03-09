@@ -41,7 +41,8 @@ node {
   
   stage('artifacts'){
     // archiveArtifacts artifacts: 'SampleExample-1.0.0.jar', followSymlinks: false
-     archiveArtifacts artifacts: 'sample/target/SampleExample-1.0.0.jar', followSymlinks: false
+   //  archiveArtifacts artifacts: 'sample/target/SampleExample-1.0.0.jar', followSymlinks: false
+     archiveArtifacts artifacts: '../../SampleExample-*.jar', followSymlinks: false
   }
 
 }
